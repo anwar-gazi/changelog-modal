@@ -3,7 +3,7 @@
 > Universal, framework-agnostic web component and markdown sanitization engine for rendering interactive changelog modals across any web application.
 
 [![npm version](https://img.shields.io/npm/v/changelog-modal-element.svg)](https://www.npmjs.com/package/changelog-modal-element)
-[![license](https://img.shields.io/npm/l/changelog-modal-element.svg)](https://github.com/artauk/changelog-modal-element/blob/main/LICENSE)
+[![license](https://img.shields.io/npm/l/changelog-modal-element.svg)](https://github.com/anwar-gazi/changelog-modal/blob/main/LICENSE)
 [![bundle size](https://img.shields.io/bundlephobia/minzip/changelog-modal-element)](https://bundlephobia.com/package/changelog-modal-element)
 
 ---
