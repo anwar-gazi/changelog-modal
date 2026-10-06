@@ -1,0 +1,64 @@
+{
+  "name": "changelog-modal-element",
+  "version": "1.0.0",
+  "description": "Universal web component and markdown sanitization engine for rendering interactive changelog modals across any web stack.",
+  "type": "module",
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "unpkg": "dist/changelog-modal.min.js",
+  "jsdelivr": "dist/changelog-modal.min.js",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    },
+    "./styles.css": "./dist/styles.css"
+  },
+  "files": [
+    "dist",
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "dev": "vite",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm run test && npm run build"
+  },
+  "keywords": [
+    "changelog",
+    "modal",
+    "web-component",
+    "custom-elements",
+    "markdown",
+    "marked",
+    "admin-panel",
+    "release-notes"
+  ],
+  "author": "Minhajul Anwar <minhaj.me.bd@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/artauk/changelog-modal-element.git"
+  },
+  "bugs": {
+    "url": "https://github.com/artauk/changelog-modal-element/issues"
+  },
+  "homepage": "https://github.com/artauk/changelog-modal-element#readme",
+  "dependencies": {
+    "marked": "^15.0.7"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.9",
+    "happy-dom": "^17.4.4",
+    "tsup": "^8.4.0",
+    "typescript": "^5.8.2",
+    "vite": "^6.2.0",
+    "vitest": "^3.0.7"
+  }
+}

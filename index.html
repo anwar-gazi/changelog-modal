@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>changelog-modal-element Demo</title>
+  <link rel="stylesheet" href="./src/styles.css">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: #f8fafc;
+      color: #1e293b;
+      margin: 0;
+      padding: 40px 20px;
+      line-height: 1.5;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 8px;
+      color: #0f172a;
+    }
+    p.lead {
+      font-size: 1.1rem;
+      color: #64748b;
+      margin-top: 0;
+    }
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+    .card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .card h3 {
+      margin-top: 0;
+      font-size: 1.25rem;
+    }
+    .card p {
+      color: #475569;
+      font-size: 0.95rem;
+      flex-grow: 1;
+    }
+    .card pre {
+      background: #f1f5f9;
+      padding: 12px;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      overflow-x: auto;
+    }
+    .btn-trigger {
+      display: inline-block;
+      width: 100%;
+      box-sizing: border-box;
+      padding: 10px 18px;
+      background: #0ea5e9;
+      color: #fff;
+      font-weight: 600;
+      border-radius: 8px;
+      text-align: center;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.2s;
+      border: none;
+    }
+    .btn-trigger:hover {
+      background: #0284c7;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>changelog-modal-element</h1>
+      <p class="lead">Universal Web Component &amp; Markdown Sanitizer for Interactive Release Notes</p>
+    </header>
+
+    <div class="card-grid">
+      <!-- Demo 1: Standalone Light Theme -->
+      <div class="card">
+        <h3>1. Standalone Modal (Inline Template)</h3>
+        <p>Uses inline <code>&lt;template&gt;</code> containing raw Markdown with HTML comments &amp; AI directives. Sanitization strips them automatically.</p>
+        <pre>&lt;changelog-modal version="1.0.0" mode="standalone"&gt;
+  &lt;template&gt;
+    # Changelog
+    &lt;!-- internal --&gt;
+    ## [1.0.0] - 2026-10-06
+    - First release
+  &lt;/template&gt;
+&lt;/changelog-modal&gt;</pre>
+        <changelog-modal version="1.0.0" mode="standalone" modal-id="demoModal1" modal-title="Release Notes v1.0.0">
+          <button slot="trigger" class="btn-trigger">Open Standalone Modal</button>
+          <template>
+# Changelog
+
+All notable changes will be documented here.
+
+<!-- 
+🤖 AI AGENT INSTRUCTIONS:
+Internal instructions are automatically stripped!
+-->
+
+> ### 🤖 Mandatory Protocol for Autonomous Coding Agents
+> Dual-Track Changelog Format Standard...
+
+## [1.0.0] - 2026-10-06
+
+### Features
+- Initial release of `changelog-modal-element`
+- Zero-dependency standalone modal with responsive typography
+- Automatic Markdown sanitization
+          </template>
+        </changelog-modal>
+      </div>
+
+      <!-- Demo 2: Dark Theme -->
+      <div class="card">
+        <h3>2. Standalone Modal (Dark Theme)</h3>
+        <p>Supports built-in sleek dark theme mode via <code>theme="dark"</code>.</p>
+        <pre>&lt;changelog-modal version="2.0.0" theme="dark" mode="standalone"&gt;
+  ...
+&lt;/changelog-modal&gt;</pre>
+        <changelog-modal version="2.0.0" theme="dark" mode="standalone" modal-id="demoModal2" modal-title="System Changelog (Dark Mode)">
+          <button slot="trigger" class="btn-trigger" style="background: #334155;">Open Dark Theme Modal</button>
+          <template>
+# Changelog (Dark Mode)
+
+## [2.0.0] - 2026-10-06
+
+### Highlights
+- Seamless dark theme with glassmorphism backdrop blur
+- Enhanced keyboard accessibility (Escape key, ARIA roles)
+- Mobile-friendly full-viewport scaling
+          </template>
+        </changelog-modal>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="./src/index.ts"></script>
+</body>
+</html>

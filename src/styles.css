@@ -1,0 +1,200 @@
+/* changelog-modal-element styles */
+:root {
+  --cme-bg: #ffffff;
+  --cme-text: #24292f;
+  --cme-border: #e1e4e8;
+  --cme-header-bg: #f6f8fa;
+  --cme-overlay-bg: rgba(0, 0, 0, 0.65);
+  --cme-accent: #0969da;
+  --cme-code-bg: #f6f8fa;
+  --cme-muted: #57606a;
+}
+
+[data-cme-theme="dark"],
+.cme-dark {
+  --cme-bg: #161b22;
+  --cme-text: #c9d1d9;
+  --cme-border: #30363d;
+  --cme-header-bg: #0d1117;
+  --cme-overlay-bg: rgba(0, 0, 0, 0.8);
+  --cme-accent: #58a6ff;
+  --cme-code-bg: #0d1117;
+  --cme-muted: #8b949e;
+}
+
+.cme-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--cme-overlay-bg);
+  backdrop-filter: blur(4px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+.cme-modal-overlay.cme-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.cme-modal-dialog {
+  background: var(--cme-bg);
+  color: var(--cme-text);
+  border: 1px solid var(--cme-border);
+  border-radius: 12px;
+  width: 100%;
+  max-width: 880px;
+  max-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+  transform: scale(0.96) translateY(10px);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+}
+
+.cme-modal-overlay.cme-open .cme-modal-dialog {
+  transform: scale(1) translateY(0);
+}
+
+.cme-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--cme-border);
+  background: var(--cme-header-bg);
+}
+
+.cme-modal-title {
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cme-close-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  line-height: 1;
+  color: var(--cme-muted);
+  padding: 4px 8px;
+  border-radius: 6px;
+  transition: color 0.15s, background-color 0.15s;
+}
+
+.cme-close-button:hover {
+  color: var(--cme-text);
+  background: rgba(125, 125, 125, 0.15);
+}
+
+.cme-modal-body {
+  padding: 24px;
+  overflow-y: auto;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--cme-text);
+}
+
+.cme-modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  padding: 12px 20px;
+  border-top: 1px solid var(--cme-border);
+  background: var(--cme-header-bg);
+}
+
+.cme-btn {
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  border-radius: 6px;
+  cursor: pointer;
+  border: 1px solid var(--cme-border);
+  background: var(--cme-bg);
+  color: var(--cme-text);
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.cme-btn:hover {
+  background: rgba(125, 125, 125, 0.15);
+}
+
+/* Markdown Rendering Inside Modal */
+.cme-modal-body h1 {
+  font-size: 1.65rem;
+  border-bottom: 1px solid var(--cme-border);
+  padding-bottom: 0.3em;
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.cme-modal-body h2 {
+  font-size: 1.35rem;
+  border-bottom: 1px solid var(--cme-border);
+  padding-bottom: 0.3em;
+  margin-top: 24px;
+  margin-bottom: 12px;
+  color: var(--cme-accent);
+}
+
+.cme-modal-body h3 {
+  font-size: 1.15rem;
+  margin-top: 20px;
+  margin-bottom: 8px;
+}
+
+.cme-modal-body h4 {
+  font-size: 1rem;
+  margin-top: 16px;
+  margin-bottom: 6px;
+}
+
+.cme-modal-body pre {
+  background: var(--cme-code-bg);
+  padding: 12px 16px;
+  border-radius: 8px;
+  border: 1px solid var(--cme-border);
+  overflow-x: auto;
+  font-size: 0.88em;
+}
+
+.cme-modal-body code {
+  background: var(--cme-code-bg);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.88em;
+}
+
+.cme-modal-body ul,
+.cme-modal-body ol {
+  padding-left: 24px;
+  margin: 8px 0;
+}
+
+.cme-modal-body li {
+  margin-bottom: 4px;
+}
+
+.cme-modal-body blockquote {
+  border-left: 4px solid var(--cme-accent);
+  margin: 12px 0;
+  padding-left: 16px;
+  color: var(--cme-muted);
+}
+
+.cme-modal-body hr {
+  border: 0;
+  border-top: 1px solid var(--cme-border);
+  margin: 24px 0;
+}
